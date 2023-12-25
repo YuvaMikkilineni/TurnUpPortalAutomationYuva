@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurnUpPortalAutomationYuva", "TurnUpPortalAutomationYuva.csproj", "{97A8A5B7-3A31-4F78-84C7-5ED6E9EF69A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97A8A5B7-3A31-4F78-84C7-5ED6E9EF69A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97A8A5B7-3A31-4F78-84C7-5ED6E9EF69A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97A8A5B7-3A31-4F78-84C7-5ED6E9EF69A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97A8A5B7-3A31-4F78-84C7-5ED6E9EF69A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AAA8E485-5C30-45AA-A85C-F22C853C401C}
+	EndGlobalSection
+EndGlobal
