@@ -51,10 +51,10 @@ IWebElement createNewButton = driver.FindElement(By.XPath("//*[@id=\"container\"
 createNewButton.Click();
 
 //Select Time from TypeCode
-IWebElement typeDropDown = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[1]/div/span[1]/span"));
+IWebElement typeDropDown = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[1]/div/span[1]/span/span[2]/span"));
 typeDropDown.Click();
-
-IWebElement timeOption = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[1]/div/span[1]/span/span[1]"));
+Thread.Sleep(1000);
+IWebElement timeOption = driver.FindElement(By.XPath("//*[@id=\"TypeCode_listbox\"]/li[2]"));
 timeOption.Click();
 
 //Input Code
@@ -81,9 +81,9 @@ Thread.Sleep(2000);
 
 //Check if record is present
 IWebElement actualCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
+String testActual = actualCode.Text;
 
-
-if  (actualCode.Text == "January2024-Y")
+if (actualCode.Text == "January2024-Y")
 {
     Console.WriteLine("The Record Created Successfully");
 }else
@@ -95,9 +95,29 @@ if  (actualCode.Text == "January2024-Y")
 IWebElement editButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
 editButton.Click();
 
+typeDropDown = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[1]/div/span[1]/span/span[2]/span"));
+typeDropDown.Click();
+Thread.Sleep(1000);
+timeOption = driver.FindElement(By.XPath("//*[@id=\"TypeCode_listbox\"]/li[1]"));
+timeOption.Click();
+
+codeTextBox = driver.FindElement(By.Id("Code"));
+codeTextBox.Clear();
+codeTextBox.SendKeys("January2024-Yuva");
+
 descriptionTextBox = driver.FindElement(By.Id("Description"));
 descriptionTextBox.Clear();
 descriptionTextBox.SendKeys("Automation Testing- Yuva");
+
+IWebElement priceTag = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[4]/div/span[1]/span/input[1]"));
+priceTag.Click();
+
+priceTextBox = driver.FindElement(By.Id("Price"));
+priceTextBox.Clear();
+
+priceTag.Click();
+
+priceTextBox.SendKeys("50");
 
 saveButton = driver.FindElement(By.Id("SaveButton"));
 saveButton.Click();
@@ -107,9 +127,9 @@ goToLastPage = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/spa
 goToLastPage.Click();
 Thread.Sleep(2000);
 
-actualCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[3]"));
+IWebElement editCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
 
-if (actualCode.Text == "Automation Testing- Yuva")
+if (editCode.Text != testActual)
 {
     Console.WriteLine("Updated successfull");
 }else
@@ -136,3 +156,5 @@ else
 {
     Console.WriteLine("Record Not Deleted");
 }
+
+driver.Quit();
